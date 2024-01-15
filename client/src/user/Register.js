@@ -2,14 +2,14 @@ import React, { useContext, useState } from "react";
 import { useMutation } from "@apollo/client";
 import { REGISTER_USER } from "../gql-constants";
 import { AuthContext } from "../context/auth";
-import { userForm } from "../util/hooks";
+import { useUserForm } from "../util/hooks";
 import loadingIcon from "../icons/loadingIcon.svg";
 
 const Register = (props) => {
   const context = useContext(AuthContext);
   const [errors, setErrors] = useState({});
 
-  const { onChange, onSubmit, values } = userForm(registerUser, {
+  const { onChange, onSubmit, values, formErrors } = useUserForm(registerUser, {
     username: "",
     email: "",
     password: "",
