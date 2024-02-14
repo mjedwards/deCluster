@@ -7,16 +7,17 @@ import { AuthProvider } from "./context/auth";
 import AuthRoute from "./util/AuthRoute";
 
 import Home from "./marketing/Home";
-import Login from "./user/Login";
-import Register from "./user/Register";
-import Dashboard from "./user/Dashboard";
+import Login from "./User/Login";
+import Register from "./User/Register";
+import UserDashboard from "./User/UserDashboard";
 
 function App() {
   return (
     <AuthProvider>
       <Router>
         <div>
-          <AuthRoute exact path="/dashboard" component={Dashboard} />
+          {/* <AuthRoute exact path="/dashboard" component={UserDashboard} /> */}
+          <Route exact path="/dashboard" component={UserDashboard} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/" component={Home} />
