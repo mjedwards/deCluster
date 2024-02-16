@@ -6,8 +6,8 @@ function DashSidebar({ navigation, teams }) {
 		return classes.filter(Boolean).join(" ");
 	}
 	return (
-		<div className='hidden lg:absolute lg:left-0 lg:z-50 lg:flex lg:w-72 lg:flex-col'>
-			<div className='flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4'>
+		<div className='hidden lg:absolute lg:left-0 lg:z-50 lg:flex lg:w-72 lg:flex-col h-full'>
+			<div className='flex grow flex-col gap-y-5 overflow-y-auto bg-gray-900 px-6 pb-4 h-full'>
 				<div className='flex h-16 shrink-0 items-center'>
 					<img
 						className='h-8 w-auto'
@@ -63,7 +63,7 @@ function DashSidebar({ navigation, teams }) {
 								))}
 							</ul>
 						</li>
-						<li className='mt-auto'>
+						<li className=''>
 							<a
 								href='#'
 								className='group -mx-2 flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-400 hover:bg-gray-800 hover:text-white'>
