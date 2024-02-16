@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/auth";
 import { useMutation } from "@apollo/client";
-import { useUserForm } from "../util/hooks";
+import { useUserForm } from "../utils/hooks/hooks";
 import { LOGIN_USER } from "../gql-constants";
 import loadingIcon from "../icons/loadingIcon.svg";
 
@@ -9,10 +9,13 @@ function Login(props) {
 	const context = useContext(AuthContext);
 	const [errors, setErrors] = useState({});
 
-	const { onChange, onSubmit, values, formErrors } = useUserForm(loginUserCallback, {
-		email_username: "",
-		password: "",
-	});
+	const { onChange, onSubmit, values, formErrors } = useUserForm(
+		loginUserCallback,
+		{
+			email_username: "",
+			password: "",
+		}
+	);
 	const [loginUser, { loading }] = useMutation(LOGIN_USER, {
 		update(_, { data: { login: userData } }) {
 			context.login(userData);
