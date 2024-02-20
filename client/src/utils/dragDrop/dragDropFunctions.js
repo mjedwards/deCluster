@@ -5,11 +5,11 @@ export const onTaskDrop = (e, tasks, setTasks) => {
     const droppedTaskId = e.dataTransfer.getData("application/reactflow");
     const draggedTask = tasks.find((task) => task.id === Number(droppedTaskId));
     const dropIndex = tasks.findIndex((task) => task.id === Number(e.target.id));
-  
+    
     // Check if the dragged task is dropped above or below its original position
     const updatedTasks = [...tasks];
     const draggedTaskIndex = updatedTasks.findIndex((task) => task.id === draggedTask.id);
-  
+    
     // Remove the dragged task from its original position
     updatedTasks.splice(draggedTaskIndex, 1);
   
@@ -17,7 +17,7 @@ export const onTaskDrop = (e, tasks, setTasks) => {
     if (dropIndex < draggedTaskIndex) {
       updatedTasks.splice(dropIndex, 0, draggedTask);
     } else {
-      updatedTasks.splice(dropIndex + 1, 0, draggedTask);
+      updatedTasks.splice(dropIndex, 0, draggedTask);
     }
   
     // Update state to reflect the new task order
